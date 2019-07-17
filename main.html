@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+    <script src="https://code.jquery.com/jquery-2.2.1.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- <script src="js/bootstrap.js"></script> -->
+  </head>
+  <body><a href="#" data-toggle="modal" data-target="#parent" class="btn btn-default">show parent modal</a>
+    <div tabindex="0"></div>
+    <div id="parent" tabindex="-1" role="dialog" class="modal fade">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">親モーダルダイアログ</h4>
+          </div>
+          <div class="modal-body"><a href="#" data-toggle="modal" data-target="#child" class="btn btn-default">子モーダル表示</a>
+            <div style="height: 500px;">高さがあるモーダル</div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">閉じる</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div tabindex="0"></div>
+    <div tabindex="0"></div>
+    <div id="child" tabindex="-1" role="dialog" class="modal fade">
+      <div role="document" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">子モーダル</h4>
+          </div>
+          <div class="modal-body">
+            <p>子モーダルです</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn btn-default">閉じる</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div tabindex="0"></div>
+    <script>
+      $('#child').on('click', function () {
+        $('body').addClass('modal-open');
+        $('document').off('')
+      });
+    </script>
+  </body>
+</html>

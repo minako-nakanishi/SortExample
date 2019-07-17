@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/css/theme.default.min.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.min.js"></script>
+<!-- 追加機能(widgets)を使用する場合は次も追加する -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.31.0/js/jquery.tablesorter.widgets.min.js"></script>
+  <script>
+    $(document).ready(function()
+    {
+      console.log($.tablesorter)
+      $.tablesorter.addParser({
+        id: 'date',
+        is: function(s){
+          return false;
+        },
+        format: function(s){
+          return s.replace(/\//g,"");
+        },
+        type: 'text'
+      });
+
+
+        $("#myTable").tablesorter({
+          headers:{
+            1:{sorter: 'date'}
+          }
+        });
+    }
+);
+  </script>
+  </head>
+  <body>
+    <table id="myTable" class="tablesorter">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+    </tr>
+
+  </thead>
+  <tbody>
+    <tr>
+      <td>Chiyu</td>
+      <td>2017/08/09解約予定<td>
+    </tr>
+    <tr>
+      <td>aaa</td>
+      <td>解約<td>
+    </tr>
+    <tr>
+      <td>bbb</td>
+      <td>解約<td>
+    </tr>
+    ...
+  </tbody>
+</table>
+  </body>
+</html>
